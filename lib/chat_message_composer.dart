@@ -1,0 +1,29 @@
+export 'package:cross_file/cross_file.dart';
+export 'package:flutter_quill/flutter_quill.dart' hide linkPrefixes;
+
+export 'src/chat_message_composer/chat_message_composer.dart';
+export 'src/chat_message_composer/chat_message_composer_scope.dart';
+export 'src/data/models/chat_message_composer_compose_context.dart';
+export 'src/data/models/chat_message_composer_message_data.dart';
+export 'src/data/models/chat_message_composer_send_action.dart';
+export 'src/data/models/quoted_file_info.dart';
+export 'src/domain/datasources/clipboard_file_reader.dart';
+export 'src/domain/entities/attached_file.dart';
+export 'src/domain/entities/mention.dart';
+export 'src/domain/entities/mention_embed.dart';
+export 'src/domain/extensions/x_file_extensions.dart';
+export 'src/domain/repositories/chat_message_composer_localization_repository.dart';
+export 'src/domain/repositories/mention_repository.dart';
+export 'src/extensions/chat_message_composer_context_extensions.dart';
+export 'src/extensions/document_ext.dart';
+export 'src/presentation/theme/chat_editor_theme.dart';
+export 'src/presentation/utils/file_type_icon_util.dart';
+export 'src/presentation/widgets/components/edit_mode_indicator/utils.dart';
+export 'src/presentation/widgets/components/mention/mention_embed_builder.dart';
+export 'src/presentation/widgets/components/mention/mention_panel.dart';
+export 'src/presentation/widgets/components/reply_quoted_message_preview/reply_quoted_message_preview.dart'
+    show QuotedImageBuilder;
+export 'src/presentation/widgets/message_input/editor_drag_auto_scroll.dart';
+export 'src/simple_text_input/simple_text_input.dart';
+export 'src/simple_text_input/simple_text_input_controller.dart';
+export 'src/simple_text_input/simple_text_input_scope.dart';
