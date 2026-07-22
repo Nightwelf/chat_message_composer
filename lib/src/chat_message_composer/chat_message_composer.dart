@@ -71,7 +71,7 @@ class ChatMessageComposer extends StatefulWidget {
     this.autofocus = true,
     this.onMentionTap,
     this.onMentionLongTap,
-    this.disableMentions = true,
+    this.disableMentions = false,
     this.desktopMessageInputMaxHeight = 280,
     this.mobileMessageInputMaxHeight = 96,
     this.constraints,
@@ -135,7 +135,7 @@ class ChatMessageComposer extends StatefulWidget {
   final MentionTapCallback? onMentionLongTap;
 
   /// Отключает ли упоминания пользователей через @ (панель выбора при вводе '@').
-  /// По умолчанию true.
+  /// По умолчанию false.
   final bool disableMentions;
 
   /// Максимальная высота поля ввода сообщения для десктопной версии. По умолчанию 280.

@@ -102,7 +102,7 @@ class MyLocalizationRepository implements ChatMessageComposerLocalizationReposit
 
 ### 2. Используйте ChatMessageComposer
 
-Обратите `ChatMessageComposer` в `ChatMessageComposerScope`:
+Оберните `ChatMessageComposer` в `ChatMessageComposerScope`:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -157,7 +157,7 @@ MaterialApp(
 
 - `onSendTap` — callback при нажатии на кнопку отправки. Получает `ChatMessageComposerMessageData` и `ChatMessageComposerSendAction` (Send / Edit / Quote)
 - `isPlatformMobile` — использовать мобильный или десктопный layout
-- `disableMentions` — отключение упоминаний «@» (по умолчанию `true`)
+- `disableMentions` — отключение упоминаний «@» (по умолчанию `false`, т.е. упоминания включены)
 - `initialFiles`, `initialComposeContext` — восстановление черновика (текст/файлы/режим composing)
 - `desktopMessageInputMaxHeight`, `mobileMessageInputMaxHeight` — ограничение высоты поля ввода
 - `useKeyboardReplacement` — панель эмодзи заменяет клавиатуру на мобильных устройствах вместо открытия поверх неё
