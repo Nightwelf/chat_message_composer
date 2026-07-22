@@ -19,10 +19,7 @@
 
 ```yaml
 dependencies:
-  chat_message_composer:
-    git:
-      url: git@gitlab.satel.org:rtuc-forks/frontend/chat_message_composer.git
-      ref: 1.0.0
+  chat_message_composer: ^1.0.0
 ```
 
 Затем выполните:
