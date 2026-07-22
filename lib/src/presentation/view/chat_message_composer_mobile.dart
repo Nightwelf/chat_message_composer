@@ -23,7 +23,6 @@ import 'package:chat_message_composer/src/presentation/widgets/components/reply_
 import 'package:chat_message_composer/src/presentation/widgets/components/send_panel_buttons/plus_button.dart';
 import 'package:chat_message_composer/src/presentation/widgets/message_input/message_input.dart';
 import 'package:delta_text_view/delta_text_view.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_quill/flutter_quill.dart';
