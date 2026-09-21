@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.2]
+
+- Исправлена совместимость с `file_picker: ^13.1.0` (breaking change в API): `FilePicker.platform.pickFiles` заменён на статические `FilePicker.pickFiles`/`FilePicker.pickFile`, чтение байт файла на web — через `PlatformFile.readAsBytes()` вместо удалённого поля `bytes`
+
 ## [1.0.1]
 
 - Обновлена зависимость `uuid` до `^4.6.0`

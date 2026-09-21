@@ -1,6 +1,6 @@
 name: chat_message_composer
 description: Composer для сообщений чата с форматированием текста, вложениями, упоминаниями и режимами edit/quote
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Nightwelf/chat_message_composer
 
 environment:
@@ -9,27 +9,27 @@ environment:
 
 dependencies:
   bloc_concurrency: ^0.3.0
-  camera: ^0.11.1+2
-  cross_file: ^0.3.5+2
+  camera: ^0.12.1
+  cross_file: ^0.3.5+5
   dart_quill_delta: ^10.8.3
-  emoji_picker_flutter: ^4.4.0
-  equatable: ^2.0.8
-  file_picker: ^10.3.6
+  emoji_picker_flutter: ^4.5.4
+  equatable: ^3.0.0
+  file_picker: ^13.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
-  flutter_quill: ^11.5.1
-  mime: ^2.0.0
-  path_provider: ^2.1.5
+  flutter_quill: ^11.6.0
+  mime: ^2.1.0
+  path_provider: ^2.1.6
   provider: ^6.1.5+1
   uuid: ^4.6.0
   pasteboard: ^0.5.0
-  desktop_drop: ^0.7.1
+  desktop_drop: ^0.8.4
   delta_text_view: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^10.3.0
+  very_good_analysis: ^11.0.0
 flutter:
   uses-material-design: true
   assets:

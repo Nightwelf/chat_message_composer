@@ -13,23 +13,24 @@ class MessageFilePickerImpl implements MessageFilePicker {
   @override
   Future<List<XFile>> pickFiles({bool allowMultiple = false}) async {
     try {
-      final result = await FilePicker.platform
-          .pickFiles(allowMultiple: allowMultiple, withData: kIsWeb);
+      final files = allowMultiple
+          ? await FilePicker.pickFiles()
+          : [await FilePicker.pickFile()].whereType<PlatformFile>().toList();
 
-      if (result == null || result.files.isEmpty) {
+      if (files.isEmpty) {
         return [];
       }
 
-      final files = <XFile>[];
+      final result = <XFile>[];
 
-      for (final platformFile in result.files) {
-        final xFile = _convertPlatformFileToXFile(platformFile);
+      for (final platformFile in files) {
+        final xFile = await _convertPlatformFileToXFile(platformFile);
         if (xFile != null) {
-          files.add(xFile);
+          result.add(xFile);
         }
       }
 
-      return files;
+      return result;
     } on Exception catch (_) {
       return const [];
     }
@@ -38,26 +39,26 @@ class MessageFilePickerImpl implements MessageFilePicker {
   @override
   Future<List<XFile>> pickMediaFiles({bool allowMultiple = false}) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.media,
-        allowMultiple: allowMultiple,
-        withData: kIsWeb,
-      );
+      final files = allowMultiple
+          ? await FilePicker.pickFiles(type: FileType.media)
+          : [await FilePicker.pickFile(type: FileType.media)]
+              .whereType<PlatformFile>()
+              .toList();
 
-      if (result == null || result.files.isEmpty) {
+      if (files.isEmpty) {
         return [];
       }
 
-      final files = <XFile>[];
+      final result = <XFile>[];
 
-      for (final platformFile in result.files) {
-        final xFile = _convertPlatformFileToXFile(platformFile);
+      for (final platformFile in files) {
+        final xFile = await _convertPlatformFileToXFile(platformFile);
         if (xFile != null) {
-          files.add(xFile);
+          result.add(xFile);
         }
       }
 
-      return files;
+      return result;
     } on Exception catch (_) {
       return [];
     }
@@ -85,18 +86,15 @@ class MessageFilePickerImpl implements MessageFilePicker {
     }
   }
 
-  XFile? _convertPlatformFileToXFile(PlatformFile platformFile) {
+  Future<XFile?> _convertPlatformFileToXFile(PlatformFile platformFile) async {
     try {
       final fileName = platformFile.name;
       final mimeType =
           lookupMimeType(fileName) ?? _getFallbackMimeType(fileName);
 
       if (kIsWeb) {
-        if (platformFile.bytes != null) {
-          return XFile.fromData(platformFile.bytes!,
-              name: fileName, mimeType: mimeType);
-        }
-        return null;
+        final bytes = await platformFile.readAsBytes();
+        return XFile.fromData(bytes, name: fileName, mimeType: mimeType);
       } else {
         if (platformFile.path != null) {
           return XFile(platformFile.path!, name: fileName, mimeType: mimeType);
